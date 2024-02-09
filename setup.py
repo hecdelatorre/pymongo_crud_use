@@ -5,13 +5,13 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setup(
     name='pymongo_crud_use',
-    version='0.0.1',
+    version='0.1.1',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=[
         'pymongo',
         'pymongo[srv]',
-        'uuid_extensions'
+        'uuid7'
     ],
     entry_points={
         'console_scripts': [
