@@ -1,5 +1,6 @@
 # Import necessary functions or classes to be accessible when the package is imported
 from .mongo_functions import (
+    uuid_id,
     initialize_collection,
     set_data,
     get_data,
@@ -15,11 +16,12 @@ from .mongo_functions import (
     upsert_data,
     search_across_fields,
     search_all_fields,
-    uuid_id
+    close_connection
 )
 
 # Define __all__ to specify what symbols will be exported when using "from pymongo_crud_use import *"
 __all__ = [
+    'uuid_id',
     'initialize_collection',
     'set_data',
     'get_data',
@@ -35,5 +37,5 @@ __all__ = [
     'upsert_data',
     'search_across_fields',
     'search_all_fields',
-    'uuid_id'
+    'close_connection'
 ]

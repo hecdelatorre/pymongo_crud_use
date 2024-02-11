@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setup(
     name='pymongo_crud_use',
-    version='0.1.1',
+    version='0.2.1',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=[

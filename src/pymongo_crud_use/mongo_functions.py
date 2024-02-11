@@ -1,8 +1,10 @@
 from pymongo import MongoClient
 from uuid_extensions import uuid7str
 
+# Generate a UUID using the UUID7 strategy.
+uuid_id = lambda: uuid7str()
+
 # Initialize and return the MongoDB collection.
-# Uses try-except block to handle connection errors.
 initialize_collection = lambda uri, db_name, collection_name: MongoClient(uri)[db_name][collection_name]
 
 # Insert data into the MongoDB collection.
@@ -47,5 +49,5 @@ search_across_fields = lambda collection, search_query: collection.find({ "$or":
 # Search for the given term in all fields of the MongoDB collection.
 search_all_fields = lambda collection, search_term: collection.find({ "$or": [{key: {"$regex": search_term.lower(), "$options": "i"}} for key in collection.find_one().keys()]})
 
-# Generate a UUID using the UUID7 strategy.
-uuid_id = lambda: uuid7str()
+# Close the connection to the MongoDB database.
+close_connection = lambda collection: collection.client.close()
