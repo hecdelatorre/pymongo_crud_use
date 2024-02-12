@@ -2,6 +2,7 @@
 from .mongo_functions import (
     uuid_id,
     initialize_collection,
+    initialize_collection_with_certificate,
     set_data,
     get_data,
     get_all_data,
@@ -23,6 +24,7 @@ from .mongo_functions import (
 __all__ = [
     'uuid_id',
     'initialize_collection',
+    'initialize_collection_with_certificate',
     'set_data',
     'get_data',
     'get_all_data',

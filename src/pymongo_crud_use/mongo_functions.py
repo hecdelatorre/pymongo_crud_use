@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from uuid_extensions import uuid7str
+from pymongo.server_api import ServerApi
 
 # Generate a UUID using the UUID7 strategy.
 def uuid_id():
@@ -15,6 +16,33 @@ def initialize_collection(uri, db_name, collection_name):
         return client[db_name][collection_name]
     except Exception as e:
         return f"Error initializing collection: {str(e)}"
+
+# Initialize and return the MongoDB collection.
+def initialize_collection_with_certificate(uri, certificate_path, db_name, collection_name):
+    """
+    Initialize and return the MongoDB collection using TLS certificate authentication.
+    
+    Parameters:
+    - uri: MongoDB URI string.
+    - certificate_path: Path to the TLS certificate file.
+    - db_name: Name of the MongoDB database.
+    - collection_name: Name of the collection within the database.
+    
+    Returns:
+    - MongoDB collection object.
+    """
+    try:
+        # Initialize MongoClient with TLS certificate authentication
+        client = MongoClient(uri,
+                             tls=True,
+                             tlsCertificateKeyFile=certificate_path,
+                             server_api=ServerApi('1'))
+        
+        # Access the specified database and collection
+        return client[db_name][collection_name]
+    
+    except Exception as e:
+        return f"Error initializing collection with certificate: {str(e)}"
 
 # Insert data into the MongoDB collection.
 def set_data(collection, data):

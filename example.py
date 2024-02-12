@@ -1,14 +1,13 @@
-from mongo_functions import initialize_collection, set_data, get_data, get_all_data, \
+from pymongo_crud_use import initialize_collection, set_data, get_data, get_all_data, \
     get_data_one, remove_data_bool, remove_data, update_data, delete_db, count_db_bool, \
     count_all_db, search_data_by_field, upsert_data, search_across_fields, search_all_fields, \
     uuid_id, close_connection
 
 # MongoDB connection URI
-MONGO_URI = "mongodb+srv://user:itXYIQkmR2cRfRN1@example.itpoo6h.mongodb.net/?retryWrites=true&w=majority"
-
+MONGO_URI = ""
 # Database and collection names
-DB_NAME = "mydatabase"
-COLLECTION_NAME = "mycollection"
+DB_NAME = ""
+COLLECTION_NAME = ""
 
 # Initialize MongoDB collection
 collection = initialize_collection(MONGO_URI, DB_NAME, COLLECTION_NAME)

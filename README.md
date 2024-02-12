@@ -1,4 +1,4 @@
-# pymongo_crud_use
+## pymongo_crud_use
 
 ### MongoDB Function Usage Guide
 
@@ -18,7 +18,22 @@ Returns:
 
 - MongoDB collection object.
 
-## 2. `set_data(collection, data)`
+## 2. `initialize_collection_with_certificate(uri, certificate_path, db_name, collection_name)`
+
+Initialize and return the MongoDB collection using TLS certificate authentication.
+
+Parameters:
+
+- `uri`: MongoDB connection URI.
+- `certificate_path`: Path to the TLS certificate file.
+- `db_name`: Name of the MongoDB database.
+- `collection_name`: Name of the MongoDB collection.
+
+Returns:
+
+- MongoDB collection object.
+
+## 3. `set_data(collection, data)`
 
 Insert data into the MongoDB collection.
 
@@ -31,7 +46,7 @@ Returns:
 
 - MongoDB insert result.
 
-## 3. `get_data(collection)`
+## 4. `get_data(collection)`
 
 Retrieve data from the MongoDB collection where 'available' is True.
 
@@ -43,7 +58,7 @@ Returns:
 
 - Cursor pointing to the retrieved data.
 
-## 4. `get_all_data(collection)`
+## 5. `get_all_data(collection)`
 
 Retrieve all data from the MongoDB collection.
 
@@ -55,7 +70,7 @@ Returns:
 
 - Cursor pointing to all data in the collection.
 
-## 5. `get_data_one(collection, id_data)`
+## 6. `get_data_one(collection, id_data)`
 
 Retrieve a single document from the MongoDB collection by its ID.
 
@@ -68,7 +83,7 @@ Returns:
 
 - Single document matching the provided ID.
 
-## 6. `remove_data_bool(collection, id_data)`
+## 7. `remove_data_bool(collection, id_data)`
 
 Remove data from the MongoDB collection by its ID and set 'available' to False.
 
@@ -81,7 +96,7 @@ Returns:
 
 - MongoDB update result.
 
-## 7. `remove_data(collection, id_data)`
+## 8. `remove_data(collection, id_data)`
 
 Remove data from the MongoDB collection by its ID.
 
@@ -94,7 +109,7 @@ Returns:
 
 - MongoDB delete result.
 
-## 8. `update_data(collection, id_data, data)`
+## 9. `update_data(collection, id_data, data)`
 
 Update data in the MongoDB collection by its ID.
 
@@ -108,7 +123,7 @@ Returns:
 
 - MongoDB update result.
 
-## 9. `delete_db(collection)`
+## 10. `delete_db(collection)`
 
 Delete all data from the MongoDB collection.
 
@@ -120,7 +135,7 @@ Returns:
 
 - MongoDB delete result.
 
-## 10. `count_db_bool(collection)`
+## 11. `count_db_bool(collection)`
 
 Count documents in the MongoDB collection where 'available' is True.
 
@@ -132,7 +147,7 @@ Returns:
 
 - Number of documents where 'available' is True.
 
-## 11. `count_all_db(collection)`
+## 12. `count_all_db(collection)`
 
 Count all documents in the MongoDB collection.
 
@@ -144,7 +159,7 @@ Returns:
 
 - Total number of documents in the collection.
 
-## 12. `search_data_by_field(collection, field_name, field_value)`
+## 13. `search_data_by_field(collection, field_name, field_value)`
 
 Retrieve data from the MongoDB collection based on a specific field and its value.
 
@@ -158,7 +173,7 @@ Returns:
 
 - Cursor pointing to the retrieved data.
 
-## 13. `upsert_data(collection, query, data)`
+## 14. `upsert_data(collection, query, data)`
 
 Update existing data if found, or insert new data if not found.
 
@@ -172,7 +187,7 @@ Returns:
 
 - MongoDB update result.
 
-## 14. `search_across_fields(collection, search_query)`
+## 15. `search_across_fields(collection, search_query)`
 
 Search across all fields of the MongoDB collection and return matching documents.
 
@@ -185,7 +200,7 @@ Returns:
 
 - Cursor pointing to the retrieved data.
 
-## 15. `search_all_fields(collection, search_term)`
+## 16. `search_all_fields(collection, search_term)`
 
 Search for the given term in all fields of the MongoDB collection.
 
@@ -198,15 +213,15 @@ Returns:
 
 - Cursor pointing to the retrieved data.
 
-## 16. `close_connection`
+## 17. `close_connection(collection)`
 
-Closes connection to the database
+Close the connection to the MongoDB database.
 
 Parameters:
 
 - `collection`: MongoDB collection object.
 
-## 17. `uuid_id()`
+## 18. `uuid_id()`
 
 Generate a UUID using the [uuid7 · PyPI](https://pypi.org/project/uuid7/) strategy.
 
