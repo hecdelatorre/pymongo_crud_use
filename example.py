@@ -1,7 +1,7 @@
 from mongo_functions import initialize_collection, set_data, get_data, get_all_data, \
     get_data_one, remove_data_bool, remove_data, update_data, delete_db, count_db_bool, \
     count_all_db, search_data_by_field, upsert_data, search_across_fields, search_all_fields, \
-    uuid_id
+    uuid_id, close_connection
 
 # MongoDB connection URI
 MONGO_URI = "mongodb+srv://user:itXYIQkmR2cRfRN1@example.itpoo6h.mongodb.net/?retryWrites=true&w=majority"
@@ -12,6 +12,7 @@ COLLECTION_NAME = "mycollection"
 
 # Initialize MongoDB collection
 collection = initialize_collection(MONGO_URI, DB_NAME, COLLECTION_NAME)
+print(collection)
 
 # Simple menu
 def print_menu():
@@ -43,7 +44,10 @@ def main():
             title = input("Enter title: ")
             content = input("Enter content: ")
             id_tem = uuid_id()
-            data = {'_id': id_tem ,'title': title, 'content': content, 'available': True}
+            def data_r():
+                data = {'_id': id_tem ,'title': title, 'content': content, 'available': True}
+                return data
+            data = data_r()
             set_data(collection, data)
             print("Data set successfully!")
 
@@ -136,6 +140,7 @@ def main():
 
         elif choice == '16':
             print("Exiting...")
+            close_connection(collection)
             break
 
         else:
